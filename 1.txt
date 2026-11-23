@@ -1,0 +1,20 @@
+ CREATE TABLE Student (StudentID INT PRIMARY KEY, Name VARCHAR(100) NOT NULL, Email VARCHAR(100) UNIQUE, DOB DATE, Age INT CHECK(Age>=17), City VARCHAR(50) DEFAULT 'unknown');
+//for creating the student TABLE
+
+// for creating the course TABLE
+ CREATE TABLE Course (CourseID INT PRIMARY KEY, CourseName VARCHAR(100) NOT NULL, Credits INT CHECK (Credits > 0), studentID INT, FOREIGN KEY (studentID) REFERENCES Student(studentID));
+
+//inserting the sample records 
+//in our current version the AUTO_INCREMENT will not work so we need to insert studentid onebyone manually
+//while insertong the date we need to specify the format of the given date which can be specifide using the "To_DATE('2000-01-01', 'YYYY-MM-DD')"
+
+ INSERT INTO Student VALUES(1,'John Doe', 'john@example.com',TO_DATE('2002-05-12','YYYY-MM-DD'), 20, 'Chennai');
+
+//inserting using the DEFAULT constraint
+
+INSERT INTO Student VALUES(2,'Jane Smith', 'jane@example.com',TO_DATE('2001-03-22','YYYY-MM-DD'), 19, DEFAULT);
+
+//inserting records into the course TABLE here also the auto increment does not works so we need th manually give the course CourseID
+
+ INSERT INTO Course VALUES(101,'Database Systems', 4, 1);
+ INSERT INTO Course VALUES(102,'Computer Networks', 3, 2);
