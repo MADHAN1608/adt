@@ -1,0 +1,41 @@
+//creating the employee table 
+CREATE TABLE Employee (EmpID INT PRIMARY KEY, Name VARCHAR(100) NOT NULL, Department VARCHAR(50), Salary DECIMAL(10, 2), City VARCHAR(50));
+
+//Inserting the records 
+
+INSERT INTO Employee VALUES(1,'Alice', 'HR', 35000, 'Chennai');
+INSERT INTO Employee VALUES(2,'Bob', 'IT', 50000, 'Bangalore');
+INSERT INTO Employee VALUES(3,'Charlie', 'Finance', 40000, 'Delhi');
+INSERT INTO Employee VALUES(4,'Charlie', 'Finance', 40000, 'Bangalore');
+INSERT INTO Employee VALUES(5,'Charlie', 'Finance', 40000, 'Chennai');
+
+//using WHERE Clause to filter employeers whose salary is greater tham 40000
+
+SELECT * FROM Employee WHERE Salary > 40000;
+
+//using ORDER BY Clause (sorting the employees by salary in descing order)
+
+SELECT * FROM Employee ORDER BY Salary;
+
+
+//using the aggregate functions
+
+//counting the total numbers of employeers
+
+SELECT COUNT(*) AS Total_Employees FROM Employee;
+
+//finding total salary of all employees
+
+SELECT SUM(salary) AS Total_Salary FROM Employee;
+
+//find average salary
+
+SELECT AVG(Salary) as Average_Salary FROM Employee;
+
+//finding the highest salary fo an employee
+
+SELECT Max(Salary) AS Highest_Salary FROM Employee;
+
+//finding the lowest salary of an employee
+
+SELECT MIN(Salary) AS Lowest_Salary FROM Employee;
