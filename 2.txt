@@ -1,0 +1,24 @@
+//query for creating the Employee table 
+CREATE TABLE Employee (EmpID INT PRIMARY KEY, Name VARCHAR(100) NOT NULL, Department VARCHAR(50), Salary DECIMAL(10, 2), City VARCHAR(50) DEFAULT 'unknown');
+
+//Inserting the records into the employee table
+
+INSERT INTO Employee VALUES(1,'Alice', 'HR', 35000, 'Chennai');
+INSERT INTO Employee VALUES(2,'Bob', 'IT', 50000, 'Bangalore');
+INSERT INTO Employee VALUES(3,'Charlie', 'Finance', 40000, DEFAULT);
+
+//viewing the records
+
+SELECT * FROM Employee;
+
+//updating the record
+
+UPDATE Employee SET Salary = 55000, city = 'Hyderebad' WHERE Name = 'Bob';
+
+//Deleting a record
+
+DELETE FROM Employee WHERE Name = 'Charlie';
+
+//verify the result
+
+SELECT * FROM Employee;
